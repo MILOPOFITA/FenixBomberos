@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <span>Resultados Finales</span>
+        </div>
+
+        <div id="app-content" class="results-summary">
+            <h1>Resumen del Test</h1>
+
+            <p class="final-score-text">Tu nota final es:</p>
+            <h2 id="final-score">--</h2>
+
+            <div id="summary-stats">
+                <span>✅ Aciertos: <strong id="correct-count">0</strong></span>
+                <span>❌ Fallos: <strong id="wrong-count">0</strong></span>
+                <span>❔ Sin contestar: <strong id="unanswered-count">0</strong></span>
+            </div>
+
+            <h3>Desglose de preguntas: (Selecciona una para ver el detalle)</h3>
+            <div id="questions-summary-grid">
+                </div>
+
+            <div id="question-detail-container" class="oculto">
+                <hr>
+                <p id="detail-question-text"></p>
+                <div id="detail-options-list">
+                    </div>
+                <div id="detail-explanation-container" class="feedback-container">
+                     <h3>Explicación:</h3>
+                     <p id="detail-explanation-text"></p>
+                </div>
+            </div>
+
+            <button id="back-to-menu-btn">Volver al Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="results_logic.js"></script>
+</body>
+</html>

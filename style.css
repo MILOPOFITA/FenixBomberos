@@ -1,97 +1,377 @@
-html,
+/* ==============================================
+   PALETA DE COLORES Y ESTILOS GLOBALES
+   ============================================== */
+:root {
+  --primary-color: #4a90e2; /* Un azul más moderno y profesional */
+  --primary-dark: #357abd;
+  --text-color: #34495e; /* Un gris azulado oscuro para el texto */
+  --bg-main: #f4f7f9; /* Fondo principal ligeramente azulado */
+  --white: #ffffff;
+  --border-color: #e4e9ed;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --neutral-color: #95a5a6;
+}
+
 body {
-  padding: 0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  min-height: 100vh;
+  background-color: var(--bg-main);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+  padding: 2rem 0; /* Añadimos padding vertical para que no se pegue a los bordes */
+  color: var(--text-color);
   box-sizing: border-box;
 }
 
-main {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+h1 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
+/* Contenedor que envuelve la página del test */
+.test-page-wrapper {
+    display: flex;
     flex-direction: column;
-  }
+    align-items: center;
+    width: 100%;
+}
+
+
+/* ==============================================
+   CONTENEDORES Y FORMULARIOS
+   ============================================== */
+
+.auth-container, .main-container {
+  background-color: var(--white);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  height: 20px;
+}
+
+.hidden, .oculto {
+  display: none !important;
+}
+
+/* ==============================================
+   BOTONES
+   ============================================== */
+
+button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+.opposition-btn {
+  display: block;
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.opposition-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.menu-btn {
+  padding: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background-color: #f0f5fb; 
+  color: #3470af;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.menu-btn:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+
+/* ==============================================
+   CABECERA Y NAVEGACIÓN
+   ============================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+#back-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: 0;
+  width: auto;
+}
+
+#back-btn:hover {
+  color: var(--primary-dark);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================================
+   SECCIÓN DE TEST (ACTUALIZADA)
+   ============================================== */
+
+/* La caja del test ahora es el contexto solo para la flecha "siguiente" */
+#test-container {
+    position: relative;
+    background-color: var(--white);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#timer-container {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#pregunta-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+#siguiente-pregunta-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#siguiente-pregunta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* El contenedor del botón "Finalizar" ahora está en el flujo normal */
+.test-actions {
+    width: 100%;
+    max-width: 550px; /* Mismo ancho que la caja del test para alinear */
+    margin-top: 1.5rem; /* La separación vertical que querías */
+    padding: 0 3rem; /* Alinear el botón con el contenido de la caja */
+    box-sizing: border-box;
+}
+
+#end-test-btn {
+    background-color: var(--danger-color);
+}
+
+#end-test-btn:hover {
+    background-color: #c0392b;
+}
+
+.opcion-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.opcion-btn:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.opcion-btn.correcta, .opcion-btn.correcta:disabled:hover {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+.opcion-btn.incorrecta, .opcion-btn.incorrecta:disabled:hover {
+    background-color: var(--danger-color);
+    color: white;
+    border-color: var(--danger-color);
+}
+
+.opcion-btn:disabled:hover {
+    cursor: not-allowed;
+    background-color: var(--neutral-color);
+    border-color: var(--neutral-color);
+}
+
+/* ==============================================
+   SECCIÓN DE RESULTADOS
+   ============================================== */
+
+#questions-summary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.summary-box.correct {
+    background-color: var(--success-color);
+    border-color: #27ae60;
+}
+
+.summary-box.incorrect {
+    background-color: var(--danger-color);
+    border-color: #c0392b;
+}
+
+.summary-box.unanswered {
+    background-color: var(--neutral-color);
+    border-color: #7f8c8d;
+}
+
+#question-detail-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    text-align: left;
+}
+
+#detail-question-text {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.result-option-item {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.result-option-item.correct {
+    background-color: #eafaf1;
+    border-color: var(--success-color);
+    font-weight: bold;
+    color: #206e42;
+}
+
+.result-option-item.incorrect {
+    background-color: #fdedec;
+    border-color: var(--danger-color);
+    text-decoration: line-through;
 }

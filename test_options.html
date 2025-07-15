@@ -1,0 +1,41 @@
+<div class="main-container">
+    <div class="header">
+        <button id="back-btn">← Volver al Menú</button>
+        <span id="user-email"></span>
+        <button id="logout-btn">Cerrar Sesión</button>
+    </div>
+
+    <div id="app-content">
+        <h1>Elige el modo de test</h1>
+
+        <form id="test-options-form">
+            <div class="form-group">
+                <label>Modo de Test:</label>
+                <div class="radio-group">
+                    <div>
+                        <label for="mode-estudio">📚 Test Estudio</label>
+                        <input type="radio" id="mode-estudio" name="test-mode" value="estudio" checked>
+                        
+                    </div>
+                    <div>
+                        <label for="mode-examen">✍️ Test Examen</label>
+                        <input type="radio" id="mode-examen" name="test-mode" value="examen">
+                        
+                    </div>
+                </div>
+
+
+            <div class="form-group">
+                <label for="num-questions">Número de preguntas:</label>
+                <input type="number" id="num-questions" value="20" min="5" max="100" step="5">
+            </div>
+
+            <div class="form-group">
+                <label for="test-time">Tiempo (minutos):</label>
+                <input type="number" id="test-time" value="15" min="1">
+            </div>
+
+            <button type="submit" class="start-test-btn">Comenzar Test</button>
+        </form>
+    </div>
+</div>

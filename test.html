@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Oposiciones</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="test-page-wrapper">
+
+        <div id="test-container">
+
+            <div id="timer-container">
+                ⏳ <span id="timer">--:--</span>
+            </div>
+
+            <div id="oposicion-titulo"></div>
+
+            <div id="pregunta-header">
+                <h2 id="pregunta-numero"></h2>
+                <p id="pregunta-texto"></p>
+            </div>
+
+            <div id="opciones-container"></div>
+
+            <div id="feedback-container" class="oculto">
+                <h3>Explicación:</h3>
+                <p id="feedback-tema"></p>
+                <p id="feedback-explicacion"></p>
+            </div>
+
+            <button id="siguiente-pregunta-btn" class="oculto">&gt;</button> 
+        </div>
+
+        <div class="test-actions">
+            <button id="end-test-btn">Finalizar Test</button>
+        </div>
+
+    </div>
+
+    <script src="test_logic.js"></script> 
+</body>
+</html>
