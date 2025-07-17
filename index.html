@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso Oposiciones</title>
+    <title>HalliganTest</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="main-container">
+    <header>
+        <div class="header-container">
+            <div class="logo">HalliganTest</div>
+            <div class="user-info">
+                <span id="user-email"></span>
+                <button id="logout-btn" class="hidden">Cerrar Sesión</button>
+            </div>
         </div>
+    </header>
+
+    <main id="main-container">
+        </main>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
